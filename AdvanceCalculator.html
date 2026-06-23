@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Advance Calculator </title>
+
+<script>
+var n1 = "", n2 = "", op = "";
+
+function set(obj) {
+    var v = obj.value;
+
+    switch (v) {
+
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+        case '%':
+
+            n1 = t1.value;
+            op = v;
+            t1.value = "";
+            break;
+
+        case 'PI':
+            t1.value += Math.PI;
+            break;
+
+        case 'E':
+            t1.value += Math.E;
+            break;
+
+        case 'sin':
+            t1.value = Math.sin(parseFloat(t1.value));
+            break;
+
+        case 'cos':
+            t1.value = Math.cos(parseFloat(t1.value));
+            break;
+
+        case 'tan':
+            t1.value = Math.tan(parseFloat(t1.value));
+            break;
+
+        case 'sqrt':
+            t1.value = Math.sqrt(parseFloat(t1.value));
+            break;
+
+        case 'cbrt':
+            t1.value = Math.cbrt(parseFloat(t1.value));
+            break;
+
+        case 'abs':
+            t1.value = Math.abs(parseFloat(t1.value));
+            break;
+
+        case 'log':
+            t1.value = Math.log10(parseFloat(t1.value));
+            break;
+
+        case 'Del':
+            t1.value = t1.value.slice(0, -1);
+            break;
+
+        default:
+            t1.value += v;
+    }
+}
+
+function calc() {
+    n2 = t1.value;
+
+    n1 = parseFloat(n1);
+    n2 = parseFloat(n2);
+
+    var result = 0;
+
+    switch (op) {
+        case '+':
+       result = n1 + n2;
+       break;
+
+
+        case '-': 
+        result = n1 - n2; 
+         break;
+
+
+        case '*':
+        result = n1 * n2;
+        break;
+
+
+        case '/': 
+        result = (n2 == 0) ? "Error" : n1 / n2;
+         break;
+
+
+        case '%':
+        result = n1 % n2;
+         break;
+
+
+        default:
+        result = "Invalid";
+    }
+
+    t1.value = result;
+}
+</script>
+</head>
+
+<body style="background-color: cyan; font-family: Arial, sans-serif;">
+<center>
+
+<h1> !! Advance Calculator !!</h1>
+
+<input type="text" id="t1" name="t1" placeholder="0"
+style="text-align:right;width:490px;height:60px;font-size:40px;
+border:2px solid #ccc;border-radius:5px;margin-bottom:15px;">
+<br>
+
+<input type="button" value="1" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="2" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="3" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="sin" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="cos" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="tan" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:22px;">
+<br>
+
+<input type="button" value="4" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="5" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="6" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="%" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="sqrt" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="cbrt" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<br>
+
+<input type="button" value="7" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="8" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="9" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="log" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="abs" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="PI" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<br>
+
+<input type="button" value="0" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="+" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="-" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="*" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="/" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<input type="button" value="E" onclick="set(this)" style="width:70px;height:40px;margin:5px;font-size:18px;">
+<br>
+
+
+<input type="button" value="=" onclick="calc()"
+style="width:155px;height:40px;margin:10px 5px;font-size:18px;
+background-color:#27ae70;color:white;border:none;border-radius:5px;">
+
+
+<input type="button" value="Del" onclick="set(this)" style="width:155px;height:40px;margin:10px 5px;font-size:18px;
+background-color:orange;color:white;border:none;border-radius:5px;">
+
+
+<input type="reset" value="C" onclick="t1.value=''"
+style="width:155px;height:40px;margin:5px;font-size:18px;
+background-color:#e74c3c;color:white;border:none;border-radius:5px;">
+
+</center>
+</body>
+</html>
